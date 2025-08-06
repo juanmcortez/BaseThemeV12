@@ -23,8 +23,14 @@
 <body>
 
 {{-- STATUS --}}
-@if (session('status'))
-    <div class="status_message">{{ session('status') }}</div>
+@if (session('status') === 'two-factor-authentication-enabled')
+    <div class="status_message">{{ __('Please finish configuring two factor authentication below.') }}</div>
+@elseif(session('status') === 'two-factor-authentication-confirmed')
+    <div class="status_message">{{ __('Two factor authentication confirmed and enabled successfully.') }}</div>
+@elseif(session('status') === 'verification-link-sent')
+    <div class="status_message">{{ __('A new email verification link has been emailed to you!s') }}</div>
+@elseif(session('status'))
+    <div class="status_message success">{{ session('status') }}</div>
 @endif
 {{-- STATUS --}}
 
