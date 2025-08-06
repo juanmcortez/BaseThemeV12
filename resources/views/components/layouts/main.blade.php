@@ -14,13 +14,32 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    
+
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/base_theme.css', 'resources/js/base_theme.js'])
     @endif
 </head>
 <body>
+
+{{-- STATUS --}}
+@if (session('status'))
+    <div class="status_message">{{ session('status') }}</div>
+@endif
+{{-- STATUS --}}
+
+{{-- ERRORS --}}
+@if ($errors->any())
+    <div class="error_message">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+{{-- ERRORS --}}
+
 {{ $slot }}
 </body>
 </html>
