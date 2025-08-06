@@ -1,3 +1,3 @@
-<x-layouts.main>
+<x-layouts.inside>
     {{ __('Dashboard') }}
-</x-layouts.main>
+</x-layouts.inside>
