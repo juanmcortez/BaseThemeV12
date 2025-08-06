@@ -62,45 +62,73 @@
         }
     }
 
-    form button,
+    /*form button,*/
     form .group input,
     form .group select,
     form .group textarea {
         @apply rounded-sm;
-        @apply ring-0 ring-neutral-400;
         @apply transition-all duration-200 ease-in-out;
 
-        &:focus {
-            @apply outline-none border-neutral-600;
-            @apply ring-neutral-600 ring-offset-0;
-            @apply drop-shadow-none shadow-none;
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+            @apply bg-neutral-100;
+            @apply outline-none ring-transparent ring-0;
+            @apply border-neutral-800 border-1;
         }
     }
 
     form button {
         @apply flex;
         @apply justify-center items-center;
-        @apply mt-4 p-2;
+        @apply mt-4 p-3;
         @apply uppercase;
+        @apply rounded-sm;
         @apply text-neutral-300;
         @apply bg-neutral-500;
-        @apply ring-0 ring-neutral-500;
         @apply transition-all duration-200 ease-in-out;
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
             @apply cursor-pointer;
             @apply text-neutral-700;
             @apply bg-neutral-300;
-        }
-
-        &:focus {
-            @apply outline-none ring-neutral-500;
-            @apply border-neutral-500;
+            @apply outline-none ring-transparent ring-0;
+            @apply outline-neutral-800 outline-solid outline-1;
         }
     }
 
     [x-cloak] {
         @apply hidden;
+    }
+
+    .status_message,
+    .error_message {
+        @apply fixed;
+        @apply top-2 right-2;
+        @apply m-0 px-4 py-2;
+        @apply rounded-sm shadow;
+    }
+
+    .status_message {
+        @apply shadow-info;
+        @apply text-info-dark;
+        @apply bg-info/50;
+    }
+
+    .status_message.success {
+        @apply shadow-success;
+        @apply text-success-dark;
+        @apply bg-success/50;
+    }
+
+    .error_message {
+        @apply shadow-danger;
+        @apply text-neutral-50;
+        @apply bg-danger-dark;
     }
 }
 
@@ -136,10 +164,15 @@ body main.outside .wrapper .right-section form {
 }
 
 body main.outside .wrapper .right-section form .group,
-body main.outside .wrapper .right-section form p {
+body main.outside .wrapper .right-section h1 + p {
     @apply flex flex-row;
     @apply w-full;
     @apply m-0 p-0 mb-4;
+}
+
+body main.outside .wrapper .right-section h1 + p {
+    @apply m-0 p-0 mb-8;
+    @apply justify-center items-center;
 }
 
 body main.outside .wrapper .right-section form .group label {
@@ -166,6 +199,7 @@ body main.outside .wrapper .right-section form.recover .group input {
 body main.outside .wrapper .right-section form .group.links {
     @apply flex flex-row;
     @apply justify-between items-center;
+    @apply p-0 mt-4;
     @apply text-xs;
     @apply text-neutral-500;
 }
