@@ -1,8 +1,5 @@
 <x-layouts.main>
-    <main>
-        <div class="wrapper">
-            {{ __('INSIDE LAYOUT') }}
-            {{ $slot }}
-        </div>
+    <main class="wrapper">
+        {{ $slot }}
     </main>
 </x-layouts.main>

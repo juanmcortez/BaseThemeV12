@@ -1,9 +1,8 @@
 <x-layouts.main>
-    <main>
+    <main class="outside">
         <div class="wrapper">
             <div class="left-section">
                 {{-- SOME OTHER CONTENT --}}
-                {{ __('OUTSIDE LAYOUT') }}
             </div>
             <div class="right-section">
                 {{-- MAIN SCREEN --}}

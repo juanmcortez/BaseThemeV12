@@ -1,4 +1,19 @@
+/*
+ * Copyright (c) 2025
+ *
+ *  @author Juan Manuel Cortéz <juanm.cortez@gmail.com>
+ *  @copyright 2025 Nobidium LLC.
+ *  @license MIT License
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap');
+
 @import 'tailwindcss';
+@import "@flaticon/flaticon-uicons/css/regular/straight.css";
+@import "@flaticon/flaticon-uicons/css/solid/straight.css";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,6 +21,158 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Sansation', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* **** alerts **** */
+    --color-info: #45b9f2;
+    --color-info-dark: #18739f;
+    --color-success: #99dd4a;
+    --color-success-dark: #5a8c21;
+    --color-warning: #555ab8;
+    --color-warning-dark: #232669;
+    --color-danger: #fe6867;
+    --color-danger-dark: #b02928;
 }
+
+@layer base {
+    html,
+    body {
+        @apply antialiased;
+        @apply m-0 p-0;
+        @apply w-full h-full;
+        @apply text-sm;
+    }
+
+    a {
+        @apply text-gray-700;
+        @apply border-b-neutral-300;
+        @apply transition-all duration-200 ease-in-out;
+
+        &:hover {
+            @apply cursor-pointer;
+            @apply text-gray-400;
+            @apply border-b;
+        }
+
+        &:focus {
+            @apply text-neutral-600;
+            @apply border-b;
+            @apply outline-0 ring-0;
+        }
+    }
+
+    form button,
+    form .group input,
+    form .group select,
+    form .group textarea {
+        @apply rounded-sm;
+        @apply ring-0 ring-neutral-400;
+        @apply transition-all duration-200 ease-in-out;
+
+        &:focus {
+            @apply outline-none border-neutral-600;
+            @apply ring-neutral-600 ring-offset-0;
+            @apply drop-shadow-none shadow-none;
+        }
+    }
+
+    form button {
+        @apply flex;
+        @apply justify-center items-center;
+        @apply mt-4 p-2;
+        @apply uppercase;
+        @apply text-neutral-300;
+        @apply bg-neutral-500;
+        @apply ring-0 ring-neutral-500;
+        @apply transition-all duration-200 ease-in-out;
+
+        &:hover {
+            @apply cursor-pointer;
+            @apply text-neutral-700;
+            @apply bg-neutral-300;
+        }
+
+        &:focus {
+            @apply outline-none ring-neutral-500;
+            @apply border-neutral-500;
+        }
+    }
+
+    [x-cloak] {
+        @apply hidden;
+    }
+}
+
+/* **************** */
+/* ***** AUTH ***** */
+body main,
+body main .wrapper {
+    @apply flex flex-wrap;
+    @apply w-full h-full;
+}
+
+body main.outside .wrapper .left-section {
+    @apply w-1/2;
+    @apply bg-neutral-200;
+}
+
+body main.outside .wrapper .right-section {
+    @apply flex flex-col;
+    @apply justify-center items-center;
+    @apply w-1/2;
+}
+
+body main.outside .wrapper .right-section h1 {
+    @apply mb-8;
+    @apply text-2xl font-bold;
+    @apply text-neutral-500;
+}
+
+body main.outside .wrapper .right-section form {
+    @apply flex flex-col;
+    @apply justify-center items-start;
+    @apply w-96;
+}
+
+body main.outside .wrapper .right-section form .group,
+body main.outside .wrapper .right-section form p {
+    @apply flex flex-row;
+    @apply w-full;
+    @apply m-0 p-0 mb-4;
+}
+
+body main.outside .wrapper .right-section form .group label {
+    @apply flex flex-row;
+    @apply w-5/12;
+    @apply justify-end items-center;
+    @apply pr-4;
+}
+
+body main.outside .wrapper .right-section form .group input {
+    @apply flex flex-row;
+    @apply w-7/12;
+}
+
+body main.outside .wrapper .right-section form.recover .group label {
+    @apply w-2/12;
+    @apply pr-2;
+}
+
+body main.outside .wrapper .right-section form.recover .group input {
+    @apply w-10/12;
+}
+
+body main.outside .wrapper .right-section form .group.links {
+    @apply flex flex-row;
+    @apply justify-between items-center;
+    @apply text-xs;
+    @apply text-neutral-500;
+}
+
+body main.outside .wrapper .right-section form button {
+    @apply w-full;
+}
+
+/* ***** AUTH ***** */
+/* **************** */
