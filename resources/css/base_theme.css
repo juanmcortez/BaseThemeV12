@@ -141,6 +141,7 @@ body main .wrapper {
 }
 
 body main.outside .wrapper .left-section {
+    @apply hidden lg:flex;
     @apply w-1/2;
     @apply bg-neutral-200;
 }
@@ -148,7 +149,7 @@ body main.outside .wrapper .left-section {
 body main.outside .wrapper .right-section {
     @apply flex flex-col;
     @apply justify-center items-center;
-    @apply w-1/2;
+    @apply w-full lg:w-1/2;
 }
 
 body main.outside .wrapper .right-section h1 {
@@ -209,4 +210,68 @@ body main.outside .wrapper .right-section form button {
 }
 
 /* ***** AUTH ***** */
+/* **************** */
+
+/* **************** */
+/* ***** PAGE ***** */
+
+body main.wrapper > aside {
+    @apply hidden lg:flex flex-col;
+    @apply md:w-2/12 lg:w-1/12 h-full;
+    @apply m-0 lg:p-4;
+    @apply border-r border-neutral-200;
+}
+
+body main.wrapper > section > aside {
+    @apply lg:hidden flex flex-row;
+    @apply w-full min-h-10;
+    @apply m-0 p-4 lg:p-0;
+    @apply border-b border-neutral-200;
+}
+
+body main.wrapper > section {
+    @apply flex flex-col;
+    @apply w-full h-full lg:w-11/12;
+    @apply m-0 p-0 lg:mx-auto;
+}
+
+body main.wrapper > section > header {
+    @apply flex flex-row;
+    @apply justify-between items-center;
+    @apply min-h-14;
+    @apply border-b border-neutral-200;
+}
+
+body main.wrapper > section > article {
+    @apply flex-1 flex-row;
+    @apply m-0 p-4;
+}
+
+body main.wrapper > section > footer {
+    @apply flex flex-row;
+    @apply justify-between items-center;
+    @apply min-h-14;
+    @apply border-t border-neutral-200;
+}
+
+.left-mod {
+    @apply flex flex-row;
+    @apply justify-start items-center;
+    @apply m-0 p-0 pl-4;
+}
+
+.center-mod {
+    @apply flex flex-row;
+    @apply justify-center items-center;
+    @apply m-0 p-0 px-4;
+}
+
+
+.right-mod {
+    @apply flex flex-row;
+    @apply justify-end items-center;
+    @apply m-0 p-0 pr-4;
+}
+
+/* ***** PAGE ***** */
 /* **************** */

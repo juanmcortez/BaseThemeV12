@@ -1,0 +1,3 @@
+<aside>
+    {{ __('SIDEBAR') }}
+</aside>
