@@ -20,7 +20,7 @@ class AddressFactory extends Factory
     {
         return [
             'street_name' => $this->faker->streetAddress(),
-            'street_name_extended' => $this->faker->randomElement(['', $this->faker->streetSuffix()]),
+            'street_name_extended' => $this->faker->randomElement(['', $this->faker->streetAddress()]),
 
             'city' => $this->faker->city(),
             'state' => $this->faker->word(),
