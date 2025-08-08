@@ -1,4 +1,11 @@
 <?php
+/*
+ * Copyright (c) 2025
+ *
+ *  @author Juan Manuel Cortéz <juanm.cortez@gmail.com>
+ *  @copyright 2025 Nobidium LLC.
+ *  @license MIT License
+ */
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,6 +19,9 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('address_id')->index();
+            $table->unsignedBigInteger('phone_id')->index();
 
             $table->string('username', 100)->unique();
             $table->string('email', 255)->unique();
