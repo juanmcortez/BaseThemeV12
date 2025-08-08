@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->id();
 
             $table->unsignedBigInteger('address_id')->index();
+            $table->unsignedBigInteger('phone_id')->index();
 
             $table->string('username', 100)->unique();
             $table->string('email', 255)->unique();

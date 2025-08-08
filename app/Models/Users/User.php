@@ -10,6 +10,7 @@
 namespace App\Models\Users;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Generic\Phone;
 use App\Models\Generic\Address;
 use Illuminate\Notifications\Notifiable;
 use Database\Factories\Users\UserFactory;
@@ -28,7 +29,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = ['address'];
+    protected $with = ['address', 'phone'];
 
     /**
      * The attributes that are mass assignable.
@@ -40,6 +41,7 @@ class User extends Authenticatable
         'email',
         'password',
         'address_id',
+        'phone_id',
     ];
 
     /**
@@ -50,6 +52,7 @@ class User extends Authenticatable
     protected $hidden = [
         'id',
         'address_id',
+        'phone_id',
         'password',
         'remember_token',
         'two_factor_secret',
@@ -81,5 +84,15 @@ class User extends Authenticatable
     public function address(): HasOne
     {
         return $this->hasOne(Address::class, 'id', 'address_id')->withDefault();
+    }
+
+    /**
+     * Get the phone for the user
+     *
+     * @return HasOne
+     */
+    public function phone(): HasOne
+    {
+        return $this->hasOne(Phone::class, 'id', 'phone_id')->withDefault();
     }
 }

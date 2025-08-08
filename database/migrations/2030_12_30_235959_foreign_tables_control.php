@@ -15,18 +15,18 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            // Address
             $table->foreign('address_id')
                 ->references('id')
                 ->on('generic_addresses')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-        });
-    }
-
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['address_id']);
+            // Phone
+            $table->foreign('phone_id')
+                ->references('id')
+                ->on('generic_phones')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
         });
     }
 };
