@@ -48,6 +48,7 @@
 
     a {
         @apply text-gray-700;
+        @apply leading-none align-middle;
         @apply border-b-neutral-300;
         @apply transition-all duration-200 ease-in-out;
 
@@ -62,6 +63,15 @@
             @apply border-b;
             @apply outline-0 ring-0;
         }
+    }
+
+    li > i,
+    a > i {
+        @apply inline-flex;
+        @apply justify-center items-start;
+        @apply text-sm;
+        @apply m-0 p-0 mr-0.5;
+        @apply leading-none align-middle;
     }
 
     /*form button,*/
@@ -219,17 +229,117 @@ body main.outside .wrapper .right-section form button {
 /* ***** PAGE ***** */
 
 body main.wrapper > aside {
-    @apply hidden lg:flex flex-col;
-    @apply md:w-2/12 lg:w-1/12 h-full;
-    @apply m-0 lg:p-4;
+    @apply hidden lg:flex lg:flex-col;
+    @apply justify-between items-center;
+    @apply lg:w-1/12 h-full;
+    @apply m-0 p-0;
     @apply border-r border-neutral-200;
+}
+
+body main.wrapper > aside section {
+    @apply w-full h-full;
+    @apply m-0 p-0;
+    @apply justify-center items-center;
+}
+
+body main.wrapper > aside section h1 {
+    @apply w-full h-14;
+    @apply m-0 p-4;
+    @apply text-center;
+    @apply border-b border-neutral-200;
+}
+
+body main.wrapper > aside section:first-of-type,
+body main.wrapper > aside section:last-of-type {
+    @apply w-full h-auto;
+    @apply m-0 p-0;
+    @apply border-b-0;
+}
+
+body main.wrapper > aside section.main-menu nav {
+    @apply w-full h-14;
+    @apply m-0 p-4;
+    @apply text-center;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu {
+    @apply w-full h-14;
+    @apply m-0 p-0;
+    @apply text-center;
+    @apply justify-between items-center;
+    @apply border-t border-neutral-200;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul {
+    @apply w-full;
+    @apply m-0 p-0;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li {
+    @apply w-full;
+    @apply m-0 p-4;
+    @apply relative;
+    @apply hover:cursor-pointer;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li > ul.submenu {
+    @apply fixed;
+    @apply w-1/12;
+    @apply m-0 p-0;
+    @apply bottom-2.5 left-48;
+    @apply bg-neutral-100 shadow-sm;
+    @apply border border-neutral-200;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li > ul.submenu li {
+    @apply m-0 py-2 px-4;
+    @apply text-left;
+    @apply hover:bg-neutral-300;
 }
 
 body main.wrapper > section > aside {
     @apply lg:hidden flex flex-row;
-    @apply w-full min-h-10;
-    @apply m-0 p-4 lg:p-0;
+    @apply justify-between items-center;
+    @apply w-full min-h-14;
+    @apply m-0 p-0;
     @apply border-b border-neutral-200;
+}
+
+body main.wrapper > section > aside section {
+    @apply w-1/3 h-full;
+    @apply m-0 p-4;
+    @apply text-center;
+    @apply justify-center items-center;
+    @apply border-r border-neutral-200;
+}
+
+body main.wrapper > section > aside section:last-of-type {
+    @apply border-r-0;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li {
+    @apply w-full;
+    @apply m-0 p-0;
+    @apply relative;
+    @apply hover:cursor-pointer;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li > ul.submenu {
+    @apply fixed;
+    @apply w-1/3;
+    @apply m-0 mt-7 p-0;
+    @apply right-0;
+    @apply bg-neutral-100;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li > ul.submenu li {
+    @apply m-0 py-2 px-4;
+    @apply hover:bg-neutral-300;
+}
+
+body main.wrapper > aside section nav {
+    @apply flex flex-col;
+    @apply justify-start items-start;
 }
 
 body main.wrapper > section {
