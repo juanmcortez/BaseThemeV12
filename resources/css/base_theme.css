@@ -48,6 +48,7 @@
 
     a {
         @apply text-gray-700;
+        @apply leading-none align-middle;
         @apply border-b-neutral-300;
         @apply transition-all duration-200 ease-in-out;
 
@@ -62,6 +63,15 @@
             @apply border-b;
             @apply outline-0 ring-0;
         }
+    }
+
+    li > i,
+    a > i {
+        @apply inline-flex;
+        @apply justify-center items-start;
+        @apply text-sm;
+        @apply m-0 p-0 mr-0.5;
+        @apply leading-none align-middle;
     }
 
     /*form button,*/
@@ -252,11 +262,39 @@ body main.wrapper > aside section.main-menu nav {
     @apply text-center;
 }
 
-body main.wrapper > aside section:last-of-type nav {
+body main.wrapper > aside section:last-of-type nav.user-menu {
     @apply w-full h-14;
-    @apply m-0 p-4;
+    @apply m-0 p-0;
     @apply text-center;
+    @apply justify-between items-center;
     @apply border-t border-neutral-200;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul {
+    @apply w-full;
+    @apply m-0 p-0;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li {
+    @apply w-full;
+    @apply m-0 p-4;
+    @apply relative;
+    @apply hover:cursor-pointer;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li > ul.submenu {
+    @apply fixed;
+    @apply w-1/12;
+    @apply m-0 p-0;
+    @apply bottom-2.5 left-48;
+    @apply bg-neutral-100 shadow-sm;
+    @apply border border-neutral-200;
+}
+
+body main.wrapper > aside section:last-of-type nav.user-menu > ul > li > ul.submenu li {
+    @apply m-0 py-2 px-4;
+    @apply text-left;
+    @apply hover:bg-neutral-300;
 }
 
 body main.wrapper > section > aside {
@@ -277,6 +315,26 @@ body main.wrapper > section > aside section {
 
 body main.wrapper > section > aside section:last-of-type {
     @apply border-r-0;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li {
+    @apply w-full;
+    @apply m-0 p-0;
+    @apply relative;
+    @apply hover:cursor-pointer;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li > ul.submenu {
+    @apply fixed;
+    @apply w-1/3;
+    @apply m-0 mt-7 p-0;
+    @apply right-0;
+    @apply bg-neutral-100;
+}
+
+body main.wrapper > section > aside section:last-of-type nav.user-menu > ul > li > ul.submenu li {
+    @apply m-0 py-2 px-4;
+    @apply hover:bg-neutral-300;
 }
 
 body main.wrapper > aside section nav {
