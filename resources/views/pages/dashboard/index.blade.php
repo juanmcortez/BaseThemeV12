@@ -1,6 +1,12 @@
 <x-layouts.inside>
-    {{ __('Dashboard | Welcome back :username !!!', ['username' => auth()->user()->username]) }}
+    @if(auth()->user()->profile->full_name)
+        {!! __('Dashboard | Welcome back <strong>:name</strong> !!!', ['name' => auth()->user()->profile->full_name]) !!}
+    @else
+        {!! __('Dashboard | Welcome back <strong>:username</strong> !!!', ['username' => auth()->user()->username]) !!}
+    @endif
     <br/>
+    <br/>
+    {!! __('<span class="inline-flex w-20">Name:</span>:name', ['name' => auth()->user()->profile->full_name]) !!}
     <br/>
     {!! __('<span class="inline-flex w-20">Username:</span>:username', ['username' => auth()->user()->username]) !!}
     <br/>
@@ -10,20 +16,20 @@
     <br/>
     {{ auth()->user()->created_at --}}
     <br/>
-    {!! __('<span class="inline-flex w-20">Street:</span>:street', ['street' => auth()->user()->address->street_name]) !!}
+    {!! __('<span class="inline-flex w-20">Street:</span>:street', ['street' => auth()->user()->profile->address->street_name]) !!}
     <br/>
-    {!! __('<span class="inline-flex w-20">&nbsp;</span>:street', ['street' => auth()->user()->address->street_name_extended]) !!}
+    {!! __('<span class="inline-flex w-20">&nbsp;</span>:street', ['street' => auth()->user()->profile->address->street_name_extended]) !!}
     <br/>
-    {!! __('<span class="inline-flex w-20">City:</span>:city', ['city' => auth()->user()->address->city]) !!}
+    {!! __('<span class="inline-flex w-20">City:</span>:city', ['city' => auth()->user()->profile->address->city]) !!}
     <br/>
-    {!! __('<span class="inline-flex w-20">State:</span>:state', ['state' => auth()->user()->address->state]) !!}
+    {!! __('<span class="inline-flex w-20">State:</span>:state', ['state' => auth()->user()->profile->address->state]) !!}
     <br/>
-    {!! __('<span class="inline-flex w-20">Zip:</span>:postal_code', ['postal_code' => auth()->user()->address->postal_code]) !!}
+    {!! __('<span class="inline-flex w-20">Zip:</span>:postal_code', ['postal_code' => auth()->user()->profile->address->postal_code]) !!}
     <br/>
-    {!! __('<span class="inline-flex w-20">Country:</span>:country', ['country' => auth()->user()->address->country_code]) !!}
+    {!! __('<span class="inline-flex w-20">Country:</span>:country', ['country' => auth()->user()->profile->address->country_code]) !!}
     <br/>
     <br/>
-    {!! __('<span class="inline-flex w-20">Phone:</span>:phone', ['phone' => auth()->user()->phone->fullNumber()]) !!}
+    {!! __('<span class="inline-flex w-20">Phone:</span>:phone', ['phone' => auth()->user()->profile->phone->fullNumber()]) !!}
     <br/>
     {{-- auth()->user()->address->updated_at --}}
     <br/>

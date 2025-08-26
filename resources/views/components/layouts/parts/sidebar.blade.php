@@ -14,8 +14,8 @@
             <ul x-data="{ open: false }">
                 <li @click="open = !open">
                     <i class="fi fi-rs-circle-user"></i>
-                    @if(auth()->user()->full_name)
-                        {!! __('Welcome <strong>:User</strong> !!', ['user' => auth()->user()->username]) !!}
+                    @if(auth()->user()->profile->full_name)
+                        {!! __('<strong>:User</strong>', ['user' => auth()->user()->profile->short_name]) !!}
                     @else
                         {!! __('Welcome <strong>:User</strong> !!', ['user' => auth()->user()->username]) !!}
                     @endif
