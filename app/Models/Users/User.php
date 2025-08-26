@@ -10,8 +10,7 @@
 namespace App\Models\Users;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Generic\Phone;
-use App\Models\Generic\Address;
+use App\Models\Generic\Profile;
 use Illuminate\Notifications\Notifiable;
 use Database\Factories\Users\UserFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -29,7 +28,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = ['address', 'phone'];
+    protected $with = ['profile'];
 
     /**
      * The attributes that are mass assignable.
@@ -40,8 +39,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'address_id',
-        'phone_id',
+        'profile_id',
     ];
 
     /**
@@ -51,8 +49,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'id',
-        'address_id',
-        'phone_id',
+        'profile_id',
         'password',
         'remember_token',
         'two_factor_secret',
@@ -77,22 +74,12 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the address for the user
+     * Get the profile for the user
      *
      * @return HasOne
      */
-    public function address(): HasOne
+    public function profile(): HasOne
     {
-        return $this->hasOne(Address::class, 'id', 'address_id')->withDefault();
-    }
-
-    /**
-     * Get the phone for the user
-     *
-     * @return HasOne
-     */
-    public function phone(): HasOne
-    {
-        return $this->hasOne(Phone::class, 'id', 'phone_id')->withDefault();
+        return $this->hasOne(Profile::class, 'id', 'profile_id')->withDefault();
     }
 }

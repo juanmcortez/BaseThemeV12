@@ -20,8 +20,7 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('address_id')->index();
-            $table->unsignedBigInteger('phone_id')->index();
+            $table->unsignedBigInteger('profile_id')->index();
 
             $table->string('username', 100)->unique();
             $table->string('email', 255)->unique();

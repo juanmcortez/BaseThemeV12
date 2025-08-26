@@ -11,8 +11,7 @@ namespace Database\Factories\Users;
 
 use App\Models\Users\User;
 use Illuminate\Support\Str;
-use App\Models\Generic\Phone;
-use App\Models\Generic\Address;
+use App\Models\Generic\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -34,12 +33,14 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'address_id' => Address::factory(),
-            'phone_id' => Phone::factory(),
+            'profile_id' => Profile::factory(),
+
             'username' => fake()->userName(),
             'email' => fake()->unique()->safeEmail(),
+
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+
             'remember_token' => Str::random(10),
         ];
     }

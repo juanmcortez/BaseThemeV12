@@ -14,7 +14,7 @@ use Illuminate\Database\Migrations\Migration;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('generic_profiles', function (Blueprint $table) {
             // Address
             $table->foreign('address_id')
                 ->references('id')
@@ -25,6 +25,15 @@ return new class extends Migration {
             $table->foreign('phone_id')
                 ->references('id')
                 ->on('generic_phones')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            // Profile
+            $table->foreign('profile_id')
+                ->references('id')
+                ->on('generic_addresses')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
         });
